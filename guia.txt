@@ -1,0 +1,13 @@
+/ (raíz)
+├── index.html
+├── style.css
+├── script.js
+├── /mapa/
+│   └── buenos-aires.svg (lo vas a crear copiando los paths de tu fuente)
+├── /imagenes/
+│   └── nombres-de-distrito/
+│       ├── 1.jpg
+│       ├── 2.jpg
+│       └── ...
+├── /data/
+│   └── textos.json (pies de foto por distrito)

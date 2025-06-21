@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mapa Interactivo Buenos Aires</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="mapa-container">
+    <!-- El mapa SVG se carga dinámicamente -->
+  </div>
+
+  <!-- Modal para galería -->
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <span id="cerrar">&times;</span>
+      <h2 id="nombre-distrito"></h2>
+      <div class="carrusel">
+        <button id="prev">&#10094;</button>
+        <img id="imagen-carrusel" src="" alt="imagen" />
+        <button id="next">&#10095;</button>
+      </div>
+      <p id="pie-de-foto"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
