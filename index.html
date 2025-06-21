@@ -17,21 +17,19 @@
   </main>
 
   <script>
-    // Cargar el SVG desde la carpeta 'mapa'
-    fetch("mapa/buenos-aires.svg")
-      .then((res) => res.text())
-      .then((svg) => {
-        document.getElementById("mapa-container").innerHTML = svg;
-        const paths = document.querySelectorAll("svg path");
-        paths.forEach((p) => {
-          p.style.fill = "#753BBD"; // Violeta
-          p.style.cursor = "pointer";
-        });
-      })
-      .catch((err) => {
-        document.getElementById("mapa-container").innerHTML = "<p>Error al cargar el mapa.</p>";
-        console.error(err);
+  fetch("mapa/buenos-aires.svg")
+    .then(res => res.text())
+    .then(svg => {
+      document.getElementById("mapa-container").innerHTML = svg;
+      document.querySelectorAll("svg path").forEach(p => {
+        p.style.fill = "#753BBD"; // color violeta
+        p.style.cursor = "pointer";
       });
-  </script>
+    })
+    .catch(err => {
+      console.error("Error al cargar el SVG:", err);
+    });
+</script>
+
 </body>
 </html>
