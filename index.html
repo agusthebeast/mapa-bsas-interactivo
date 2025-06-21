@@ -2,29 +2,36 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mapa Interactivo Buenos Aires</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provincia de Buenos Aires</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="mapa-container">
-    <!-- El mapa SVG se carga dinámicamente -->
-  </div>
+  <header>
+    <h1>Provincia de Buenos Aires</h1>
+    <h2>pulsa el distrito</h2>
+  </header>
 
-  <!-- Modal para galería -->
-  <div id="modal" class="hidden">
-    <div class="modal-content">
-      <span id="cerrar">&times;</span>
-      <h2 id="nombre-distrito"></h2>
-      <div class="carrusel">
-        <button id="prev">&#10094;</button>
-        <img id="imagen-carrusel" src="" alt="imagen" />
-        <button id="next">&#10095;</button>
-      </div>
-      <p id="pie-de-foto"></p>
-    </div>
-  </div>
+  <main id="mapa-container">
+    <!-- El SVG se carga automáticamente con JS -->
+  </main>
 
-  <script src="script.js"></script>
+  <script>
+    // Cargar el SVG desde la carpeta 'mapa'
+    fetch("mapa/buenos-aires.svg")
+      .then((res) => res.text())
+      .then((svg) => {
+        document.getElementById("mapa-container").innerHTML = svg;
+        const paths = document.querySelectorAll("svg path");
+        paths.forEach((p) => {
+          p.style.fill = "#753BBD"; // Violeta
+          p.style.cursor = "pointer";
+        });
+      })
+      .catch((err) => {
+        document.getElementById("mapa-container").innerHTML = "<p>Error al cargar el mapa.</p>";
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
